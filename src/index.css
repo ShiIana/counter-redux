@@ -1,13 +1,95 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Indie Flower', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 30px;
+  position: relative;
+  background-color: white;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-image: repeating-linear-gradient(white 0px, white 30px, teal 31px);
+  color: #3355aa;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 1px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 10%;
+  background-color: rgba(255, 0, 0, 0.6);
+}
+
+h1, h2, h3, p, ul {
+  margin: 0;
+}
+
+.pic, .pic2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.pic::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url('assets/misc-14.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  right: 0;
+  bottom: 30%;
+}
+
+.pic::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url('assets/misc-15.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  right: 150px;
+  top: 0;
+}
+
+.pic2::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url('assets/misc-9.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  right: 100px;
+  bottom: 0;
+}
+
+.pic2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url('assets/misc-24.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  right: 300px;
+  bottom: 30%;
 }
