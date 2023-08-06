@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/counter-redux/static/css/main.2ffc1807.css",
+    "main.js": "/counter-redux/static/js/main.f11a9ffb.js",
+    "static/js/787.ab4dc143.chunk.js": "/counter-redux/static/js/787.ab4dc143.chunk.js",
+    "static/media/misc-24.svg": "/counter-redux/static/media/misc-24.f58145e5761ce10a294b.svg",
+    "static/media/misc-9.svg": "/counter-redux/static/media/misc-9.ffc0243ac47fe152c557.svg",
+    "static/media/misc-14.svg": "/counter-redux/static/media/misc-14.cc2d873d86fd6a753475.svg",
+    "static/media/misc-15.svg": "/counter-redux/static/media/misc-15.e421ae7d6bdcd4f6c5b5.svg",
+    "static/media/arrow.svg": "/counter-redux/static/media/arrow.41a9bd3306a66aff18c099d35d758971.svg",
+    "index.html": "/counter-redux/index.html",
+    "main.2ffc1807.css.map": "/counter-redux/static/css/main.2ffc1807.css.map",
+    "main.f11a9ffb.js.map": "/counter-redux/static/js/main.f11a9ffb.js.map",
+    "787.ab4dc143.chunk.js.map": "/counter-redux/static/js/787.ab4dc143.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ffc1807.css",
+    "static/js/main.f11a9ffb.js"
+  ]
+}
