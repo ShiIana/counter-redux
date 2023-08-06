@@ -1,1 +1,1 @@
-https://shiiana.github.io/counter-2/
+https://shiiana.github.io/counter-redux/

@@ -5,33 +5,36 @@ import Input from "./components/Input/Input";
 import Label from "./components/Label/Label";
 import {StyledCard, StyledRow, StyledSeparator} from "./components/Card/style";
 import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "./store/store";
+import {changeMaxValueAC, changeMinValueAC, incrementAC, resetAC} from "./reducers/reducer";
 
 const App = () => {
-    const [counterMin, setCounterMin] = useState(Number(localStorage.getItem('min')) || 0);
-    const [counterMax, setCounterMax] = useState(Number(localStorage.getItem('max')) || 5);
+    const counterMin = useSelector<AppStateType, number>(state => state.counter.counterMin);
+    const counterMax = useSelector<AppStateType, number>(state => state.counter.counterMax);
+    const counterValue = useSelector<AppStateType, number>(state => state.counter.counterValue);
+
     const [startValue, setStartValue] = useState(counterMin);
     const [maxValue, setMaxValue] = useState(counterMax);
-    const [counter, setCounter] = useState(counterMin);
-    const [valueIsSetted,setvalueIsSetted] = useState(true);
+    const [valueIsSetted,setValueIsSetted] = useState(true);
 
-    const incrementCounter = () => setCounter(prevState=> prevState + 1);
-    const resetCounter = () => setCounter(counterMin);
+    const dispatch = useDispatch();
+
+    const incrementCounter = () => dispatch(incrementAC());
+    const resetCounter = () => dispatch(resetAC());
     const changeStartValue = (value: number) => {
-        setvalueIsSetted(false);
+        setValueIsSetted(false);
         setStartValue(value);
     }
     const changeMaxValue = (value: number) =>{
-        setvalueIsSetted(false);
+        setValueIsSetted(false);
         setMaxValue(value);
     }
 
     const saveToStorage = () => {
-        localStorage.setItem('min', String(startValue));
-        localStorage.setItem('max', String(maxValue));
-        setCounterMin(Number(localStorage.getItem('min')));
-        setCounterMax(Number(localStorage.getItem('max')));
-        setCounter(Number(localStorage.getItem('min')));
-        setvalueIsSetted(true)
+        dispatch(changeMinValueAC(startValue));
+        dispatch(changeMaxValueAC(maxValue));
+        setValueIsSetted(true)
     }
 
     return (
@@ -67,7 +70,7 @@ const App = () => {
             <StyledCard>
                 <Counter
                     valueIsSetted={valueIsSetted}
-                    counter={counter}
+                    counter={counterValue}
                     startValue={startValue}
                     maxValue={maxValue}
                     counterMin={counterMin}
@@ -79,13 +82,13 @@ const App = () => {
                 <StyledRow>
                     <Button
                         callback={incrementCounter}
-                        isDisabled={counter >= counterMax || (startValue !== counterMin || maxValue !== counterMax)}
+                        isDisabled={counterValue >= counterMax || (startValue !== counterMin || maxValue !== counterMax)}
                     >
                         Inc
                     </Button>
                     <Button
                         callback={resetCounter}
-                        isDisabled={counter === counterMin || (startValue !== counterMin || maxValue !== counterMax)}
+                        isDisabled={counterValue === counterMin || (startValue !== counterMin || maxValue !== counterMax)}
                     >
                         Reset
                     </Button>
